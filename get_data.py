@@ -2,7 +2,7 @@ import xml.etree.ElementTree as ET
 import requests
 import json
 import datetime as DT
-
+from time import sleep
 
 
 #list of route numbers
@@ -34,5 +34,12 @@ def parseData(bus_data):
     # root = ET.fromstring(bus_data)
     # print root.tag
 
-parseData(test_data)
+
+truth = True
+file = open("datafile.txt", "w")
+while (truth == True):
+    sleep(180)
+    data = parseData(test_data)
+    file.write(data)
+
 # parseData(getData(MakeUrlGetAllVehicles(routes[2])))
